@@ -3,7 +3,9 @@
 <div class="container">
     <div>
         <h2 class="py-3">Manage Inventory</h2>
-        <button class="btn btn-primary">Add Item</button>
+        <form action="/add" method="GET">
+            <button class="btn btn-primary">Add Item</button>
+        </form>
         <div class="form-floating my-3">
             <input type="text" class="form-control" id="search" name="search" placeholder="Search Item">
             <label for="search"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -26,30 +28,21 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">001</th>
-                    <td>Iphone 14 pro</td>
-                    <td>Electronics</td>
-                    <td>5</td>
-                    <td>60,000</td>
-                    <td>Apple Iphone 14 pro</td>
-                    <td>
-                        <button class="btn btn-success mx-2 my-2">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">002</th>
-                    <td>Samsung Galaxy 14</td>
-                    <td>Electronics</td>
-                    <td>10</td>
-                    <td>50,000</td>
-                    <td>Samsung galaxy 14 new</td>
-                    <td>
-                        <button class="btn btn-success mx-2 my-2">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>
+                <% items.forEach(item => { %>
+                    <tr>
+                        <th scope="row"><%= item.id %></th>
+                        <td><%= item.name %></td>
+                        <td><%= item.category %></td>
+                        <td><%= item.quantity %></td>
+                        <td><%= item.price %></td>
+                        <td><%= item.description %></td>
+                        <td>
+                            <button class="btn btn-success mx-2 my-2">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                <% }); %>
+                
             </tbody>
         </table>
     </div>
