@@ -74,6 +74,16 @@ app.delete('/items/:id', (req, res) => {
     res.redirect('/items')
 })
 
+
+// Searching for an Item
+app.post('/search', (req, res) => {
+    const {search} = req.body
+
+    const results = sampleDB.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
+
+    res.render('search', {items: results, search})
+})
+
 // Wrong Routes
 app.get('*', (req, res) => {
     res.render('error')

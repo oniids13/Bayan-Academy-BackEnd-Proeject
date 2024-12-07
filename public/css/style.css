@@ -24,3 +24,12 @@ footer {
     align-items: center;
     gap: 5px;
 }
+
+.srch {
+    width: 30%;
+}
+
+.srch-frm {
+    display: flex;
+    gap: 10px;
+}
