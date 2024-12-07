@@ -20,7 +20,18 @@ app.get('/items', (req, res) => {
 
     let items = sampleDB
 
-    res.render('index', {items})
+    const page = parseInt(req.query.page) || 1;
+    const limit = 10; 
+    const startIndex = (page - 1) * limit;
+    const endIndex = page * limit;
+
+    const paginatedItems = items.slice(startIndex, endIndex);
+
+    const totalPages = Math.ceil(items.length / limit);
+
+    res.render('index', {items: paginatedItems,
+        currentPage: page,
+        totalPages})
 })
 
 // Get the add product form
@@ -83,6 +94,28 @@ app.post('/search', (req, res) => {
 
     res.render('search', {items: results, search})
 })
+
+
+
+const items = Array.from({ length: 100 }, (_, i) => `Item ${i + 1}`); // Example dataset
+
+app.get('/sample', (req, res) => {
+    const page = parseInt(req.query.page) || 1; // Current page number, default is 1
+    const limit = 10; // Number of items per page
+    const startIndex = (page - 1) * limit;
+    const endIndex = page * limit;
+
+    const paginatedItems = items.slice(startIndex, endIndex); // Items for the current page
+
+    const totalPages = Math.ceil(items.length / limit);
+
+    res.render('sample', {
+        items: paginatedItems,
+        currentPage: page,
+        totalPages
+    });
+});
+
 
 // Wrong Routes
 app.get('*', (req, res) => {

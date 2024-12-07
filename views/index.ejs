@@ -60,6 +60,25 @@
                 
             </tbody>
         </table>
+        <div class="pages">
+            <nav>
+                <ul class="pagination">
+                <% if (currentPage > 1) { %>
+                    <li class="page-item"><a class="page-link" href="/items?page=<%= currentPage - 1 %>">Previous</a></li>
+                <% } %>
+                <% for (let i = 1; i <= totalPages; i++) { %>
+                    <% if (i === currentPage) { %>
+                        <li class="page-item"><strong class="page-link text-danger"><%= i %></strong></li>
+                    <% } else { %>
+                        <li class="page-item"><a class="page-link" href="/items?page=<%= i %>"><%= i %></a></li>
+                    <% } %>
+                <% } %>
+                <% if (currentPage < totalPages) { %>
+                    <li class="page-item"><a class="page-link" href="/items?page=<%= currentPage + 1 %>">Next</a></li>
+                <% } %>
+                </ul>
+            </nav>
+        </div>
     </div>
 </div>
 
