@@ -37,8 +37,14 @@
                         <td><%= item.price %></td>
                         <td><%= item.description %></td>
                         <td>
-                            <button class="btn btn-success mx-2 my-2">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
+                            <div class="actions">
+                                <form action="/edit/<%= item.id %>" method="GET">
+                                    <button class="btn btn-success mx-2 my-2">Edit</button>
+                                </form>
+                                <form action="/items/<%= item.id %>?_method=Delete" method="POST">
+                                    <button class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                 <% }); %>

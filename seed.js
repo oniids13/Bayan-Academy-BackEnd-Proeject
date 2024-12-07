@@ -1,6 +1,8 @@
+const {v4: uuidv4} = require('uuid')
+
 module.exports = [
     {
-        id: 1,
+        id: uuidv4(),
         name: "Puma Deviate Nitro 2",
         category: "Shoes",
         quantity: 12,
@@ -8,7 +10,7 @@ module.exports = [
         description: "Running shoes with carbon plated sole"
     },
     {
-        id: 2,
+        id: uuidv4(),
         name: "Garmin Foreruner 55",
         category: "Watch",
         quantity: 10,
@@ -16,7 +18,7 @@ module.exports = [
         description: "Smart watch for running"
     },
     {
-        id: 3,
+        id: uuidv4(),
         name: "Hoka Singlet",
         category: "Apparel",
         quantity: 20,
