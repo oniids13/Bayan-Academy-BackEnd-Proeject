@@ -70,6 +70,16 @@ exports.viewItem = async (req, res) => {
     res.render('item', {item})
 }
 
+// Delete item confirmation page
+exports.deleteItemPage = async (req, res) => {
+    const {id} = req.params
+
+    const item = await Product.findById(id)
+
+    res.render('delete', {item})
+}
+
+
 // Deleting Item
 exports.deleteItem = async (req, res) => {
     const {id} = req.params

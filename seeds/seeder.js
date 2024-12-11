@@ -10,7 +10,10 @@ mongoose.connect('mongodb://127.0.0.1:27017/inventory-db')
         console.log(err)
     })
 
+
+
 const seedDB = async () => {
+
     const products = new Product({
         name: "Puma Deviate Nitro 2",
         category: "Shoes",
@@ -19,6 +22,7 @@ const seedDB = async () => {
         description: "Running shoes with carbon plated sole"
     })
     await products.save()
+   
 }
 
 seedDB().then(() => {
