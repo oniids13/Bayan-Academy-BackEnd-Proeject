@@ -25,16 +25,6 @@ app.use((req,res) => {
 
 
 
-
-
-
-
-
-// // Wrong Routes
-// app.get('*', (req, res) => {
-//     res.render('error')
-// })
-
 app.listen(3000, () => {
     console.log(`Listening on http://localhost:3000/items`)
 })
