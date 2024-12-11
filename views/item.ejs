@@ -1,0 +1,36 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="itemName" name="name" placeholder="Product Name" value="<%= item.name %>" disabled>
+            <label for="itemName">Product Name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="itemCategory" name="category" placeholder="Product Category" value="<%= item.category %>" disabled>
+            <label for="itemCategory">Product Category</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="itemQty" name="quantity" placeholder="Quantity" value="<%= item.quantity %>" disabled>
+            <label for="itemQty">Quantity</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="itemPrice" name="price" placeholder="Price" value="<%= item.price %>" disabled>
+            <label for="itemPrice">Price</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="itemDesc" name="description" value="<%= item.description %>" placeholder="Product Description" disabled>
+            <label for="itemDesc">Description</label>
+        </div>
+        <div>
+            <form action="/items" method="GET">
+                <button class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                  </svg></button>
+            </form>
+        </div>
+</div>
+
+
+
+
+<%- include('partials/footer.ejs') %>

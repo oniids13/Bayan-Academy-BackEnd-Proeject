@@ -97,24 +97,14 @@ app.post('/search', (req, res) => {
 
 
 
-const items = Array.from({ length: 100 }, (_, i) => `Item ${i + 1}`); // Example dataset
+// Viewing single item
+app.get('/items/:id', (req, res) => {
+    const {id} = req.params
+    const item = sampleDB.find(item => id === item.id)
 
-app.get('/sample', (req, res) => {
-    const page = parseInt(req.query.page) || 1; // Current page number, default is 1
-    const limit = 10; // Number of items per page
-    const startIndex = (page - 1) * limit;
-    const endIndex = page * limit;
+    res.render('item', {item})
 
-    const paginatedItems = items.slice(startIndex, endIndex); // Items for the current page
-
-    const totalPages = Math.ceil(items.length / limit);
-
-    res.render('sample', {
-        items: paginatedItems,
-        currentPage: page,
-        totalPages
-    });
-});
+})
 
 
 // Wrong Routes
