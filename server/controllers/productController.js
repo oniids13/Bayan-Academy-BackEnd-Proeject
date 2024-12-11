@@ -40,6 +40,13 @@ exports.addItemForm = (req ,res) => {
 exports.addItem = async (req, res) => {
     const item = new Product(req.body)
     await item.save()
+
+    const response = {
+        "message": "Item created successfully",
+        "item": req.body
+    }
+
+    console.log(response)
     res.redirect('/items')
 }
 
@@ -58,6 +65,13 @@ exports.editItem = async (req, res) => {
     const {id} = req.params
 
     const item = await Product.findByIdAndUpdate(id, {...req.body})
+
+    const response = {
+        "message": "Item updated successfully",
+        "item": req.body
+    }
+
+    console.log(response)
 
     res.redirect(`/items/${id}`)
 }
@@ -86,6 +100,11 @@ exports.deleteItem = async (req, res) => {
 
     await Product.findByIdAndDelete(id)
 
+    const response = {
+        "message": "Item deleted successfully",
+    }
+
+    console.log(response)
     res.redirect('/items')
 }
 

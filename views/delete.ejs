@@ -23,6 +23,12 @@
         <input type="text" class="form-control" id="itemDesc" name="description" value="<%= item.description %>" placeholder="Product Description" disabled>
         <label for="itemDesc">Description</label>
     </div>
+    <div class="form-floating mb-3">
+        <% const date = new Date(item.createdAt) %>
+        <% const formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}` %>
+        <input type="text" class="form-control" id="itemCreated" name="createdAt" value="<%= formattedDate %>" placeholder="Product Created Date" disabled>
+        <label for="itemCreated">Created at</label>
+    </div>
     <form action="/items/<%= item.id %>?_method=delete" method="post">
         <button type="submit" class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>

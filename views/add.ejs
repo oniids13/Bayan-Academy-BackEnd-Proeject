@@ -6,11 +6,11 @@
         <form action="/items/create-item" method="POST">
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="itemName" name="name" placeholder="Product Name" required>
-                <label for="itemName">Product Name</label>
+                <label for="itemName" class="required">Product Name</label>
             </div>
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="itemCategory" name="category" placeholder="Product Category" required>
-                <label for="itemCategory">Product Category</label>
+                <label for="itemCategory" class="required">Product Category</label>
             </div>
             <div class="form-floating mb-3">
                 <input type="number" class="form-control" id="itemQty" name="quantity" placeholder="Quantity">
@@ -18,7 +18,7 @@
             </div>
             <div class="form-floating mb-3">
                 <input type="number" class="form-control" id="itemPrice" name="price" placeholder="Price" required>
-                <label for="itemPrice">Price</label>
+                <label for="itemPrice" class="required">Price</label>
             </div>
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="itemDesc" name="description" placeholder="Product Description">

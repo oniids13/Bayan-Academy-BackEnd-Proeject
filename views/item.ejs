@@ -21,6 +21,12 @@
             <input type="text" class="form-control" id="itemDesc" name="description" value="<%= item.description %>" placeholder="Product Description" disabled>
             <label for="itemDesc">Description</label>
         </div>
+        <div class="form-floating mb-3">
+            <% const date = new Date(item.createdAt) %>
+            <% const formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}` %>
+            <input type="text" class="form-control" id="itemCreated" name="createdAt" value="<%= formattedDate %>" placeholder="Product Created Date" disabled>
+            <label for="itemCreated">Created at</label>
+        </div>
         <div>
             <form action="/items" method="GET">
                 <button class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
